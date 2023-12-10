@@ -1,0 +1,3 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Email/etc/email_templates.xsd">
+    <template id="customer_data_registration_notification" label="Customer Data Registration Notification" file="customer_data_registration_notification.html" type="html" module="MK_CustomerSignupProcess" area="frontend"/>
+</config>

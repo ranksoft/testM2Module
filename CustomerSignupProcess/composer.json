@@ -1,0 +1,34 @@
+{
+  "name": "mk/customersignupprocess",
+  "description": "Magento 2 extension that modifies the customer registration flow.",
+  "type": "magento2-module",
+  "license": "GPL-3.0",
+  "require": {
+    "php": ">=8.0",
+    "magento/framework": "^102.0.0||^103.0.0",
+    "magento/module-customer": "^101.0.0||^102.0.0",
+    "magento/module-email": "^101.0.0||^102.0.0",
+    "mk/queueretry": "^1.0.0"
+  },
+  "authors": [
+    {
+      "name": "Mykyta Kotenko",
+      "email": "mykyta.kotenko.job@gmail.com"
+    }
+  ],
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "MK\\CustomerSignupProcess\\": ""
+    }
+  },
+  "extra": {
+    "map": [
+      [
+        "*",
+        "MK/CustomerSignupProcess"
+      ]
+    ]
+  },
+  "version": "1.0.0"
+}

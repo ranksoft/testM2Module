@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/consumer.xsd">
+    <consumer name="mk.customer.singup.process.data" queue="mk.customer.singup.process.data" connection="amqp"
+              handler="MK\CustomerSignupProcess\Model\Queue\CustomerSingup\DataConsumer::processMessage"/>
+    <consumer name="mk.customer.singup.process.retry.data" queue="mk.customer.singup.process.retry.data" connection="amqp"
+              handler="MK\CustomerSignupProcess\Model\Queue\CustomerSingup\RetryDataConsumer::processMessage"/>
+</config>

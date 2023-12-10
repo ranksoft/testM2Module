@@ -1,0 +1,23 @@
+{
+  "name": "mk/queueretry",
+  "description": "MK module for Magento 2 queue retry functionality",
+  "require": {
+    "php": ">=8.0",
+    "magento/framework": "^102.0 || ^103.0"
+  },
+  "authors": [
+    {
+      "name": "Mykyta Kotenko",
+      "email": "mykyta.kotenko.job@gmail.com"
+    }
+  ],
+  "type": "magento2-module",
+  "license": "GPL-3.0",
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "MK\\QueueRetry\\": ""
+    }
+  },
+  "version": "1.0.0"
+}

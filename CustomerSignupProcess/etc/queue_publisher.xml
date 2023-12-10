@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/publisher.xsd">
+    <publisher topic="mk.customer.singup.process.data">
+        <connection name="amqp" exchange="customer-singup-process" disabled="false"/>
+    </publisher>
+    <publisher topic="mk.customer.singup.process.retry.data">
+        <connection name="amqp" exchange="customer-singup-retry-process" disabled="false"/>
+    </publisher>
+</config>

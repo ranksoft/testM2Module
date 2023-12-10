@@ -1,0 +1,23 @@
+<!--@subject Customer Data Registration Notification @-->
+<!--@vars {
+"var firstname":"Customer firstname",
+"var lastname":"Customer lastname",
+"var email":"Customer email"
+} @-->
+<html lang="en">
+<head>
+    <style>
+        ul { list-style-type: none; }
+        li { margin-bottom: 10px; }
+    </style>
+    <title>{{trans "The new customer has been successfully registered!" }}</title>
+</head>
+<body>
+<p>{{trans "The new customer has been successfully registered!" }}</p>
+<ul>
+    <li><strong>{{trans "Firstname:"}}</strong>  {{var firstname}};</li>
+    <li><strong>{{trans "Lastname:"}}</strong>  {{var lastname}};</li>
+    <li><strong>{{trans "Email:"}}</strong> {{var email}};</li>
+</ul>
+</body>
+</html>

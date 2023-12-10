@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MK\CustomerSignupProcess\Api\CustomerDataServiceInterface" type="MK\CustomerSignupProcess\Service\CustomerDataService" />
+    <preference for="MK\CustomerSignupProcess\Api\CustomerLogServiceInterface" type="MK\CustomerSignupProcess\Service\CustomerLogService" />
+    <preference for="MK\CustomerSignupProcess\Api\CustomerNotificationServiceInterface" type="MK\CustomerSignupProcess\Service\CustomerNotificationService" />
+    <preference for="MK\CustomerSignupProcess\Api\CustomerSignupProcessDataPublisherInterface" type="MK\CustomerSignupProcess\Model\Queue\CustomerSingup\Publisher" />
+    <preference for="MK\CustomerSignupProcess\Api\EmailMessageInterface" type="MK\CustomerSignupProcess\Model\Message\EmailMessage" />
+    <preference for="MK\CustomerSignupProcess\Api\CustomerDataInterface" type="MK\CustomerSignupProcess\Model\CustomerData" />
+
+    <!-- Plugins -->
+    <type name="Magento\Customer\Api\AccountManagementInterface">
+        <plugin name="mk_create_account_process_plugin" type="MK\CustomerSignupProcess\Plugin\CreateAccountProcessPlugin" sortOrder="10" disabled="false"/>
+    </type>
+
+    <!-- loggers -->
+    <virtualType name="MK\CustomerSignupProcess\Logger\InfoCustomHandler" type="Magento\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="fileName" xsi:type="string">/var/log/info_customer_data.log</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="MK\CustomerSignupProcess\Logger\InfoCustomLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="name" xsi:type="string">customerSignupProcessLogger</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">MK\CustomerSignupProcess\Logger\InfoCustomHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Injections -->
+    <type name="MK\CustomerSignupProcess\Service\CustomerLogService">
+        <arguments>
+            <argument name="logger" xsi:type="object">MK\CustomerSignupProcess\Logger\InfoCustomLogger</argument>
+        </arguments>
+    </type>
+</config>

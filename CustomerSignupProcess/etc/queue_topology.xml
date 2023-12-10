@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/topology.xsd">
+    <exchange name="customer-singup-process" type="topic" connection="amqp">
+        <binding id="customerSingupDataBindingAmqp" topic="mk.customer.singup.process.data" destinationType="queue" destination="mk.customer.singup.process.data"/>
+    </exchange>
+    <exchange name="customer-singup-retry-process" type="topic" connection="amqp">
+        <binding id="customerSingupRetryDataBindingAmqp" topic="mk.customer.singup.process.retry.data" destinationType="queue" destination="mk.customer.singup.process.retry.data"/>
+    </exchange>
+</config>

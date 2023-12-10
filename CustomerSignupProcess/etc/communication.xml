@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Communication/etc/communication.xsd">
+    <topic name="mk.customer.singup.process.data" request="MK\CustomerSignupProcess\Api\EmailMessageInterface" is_synchronous="false">
+        <handler name="processCustomerSingupDataRequest"
+                 type="MK\CustomerSignupProcess\Model\Queue\CustomerSingup\DataConsumer" method="processMessage"/>
+    </topic>
+    <topic name="mk.customer.singup.process.retry.data" request="MK\CustomerSignupProcess\Api\EmailMessageInterface" is_synchronous="false">
+        <handler name="retryProcessCustomerSingupDataRequest"
+                 type="MK\CustomerSignupProcess\Model\Queue\CustomerSingup\RetryDataConsumer" method="processMessage"/>
+    </topic>
+</config>
